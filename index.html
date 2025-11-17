@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rafaela</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card" role="main">
+    <header>
+      <div class="logo">Rafaela</div>
+      <div class="subtitle">Um cantinho feito com carinho</div>
+    </header>
+
+    <section id="home" class="page">
+      <h1>Para o meu amor nunca se esquecer o quanto eu o amo</h1>
+      <p class="lead">Um lembrete eterno, feito com corações, beijos e muito sentimento.</p>
+      <button id="startBtn" class="btn">Clique aqui se tiver coragem</button>
+    </section>
+
+    <section id="stage" class="stage">
+      <h2 class="small">Surpresa — lembre-se: eu te amo</h2>
+
+      <video id="video" playsinline controls preload="auto">
+        <source src="media/rafaela_video.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+
+      <audio id="audio" preload="auto">
+        <source src="media/rafaela_audio.mpeg" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+      </audio>
+
+      <div class="controls">
+        <button id="pauseBtn" class="btn">Pausar</button>
+        <button id="resumeBtn" class="btn">Tocar</button>
+        <div class="small">Se o som não tocar automaticamente, use o botão "Tocar".</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const home = document.getElementById('home');
+    const stage = document.getElementById('stage');
+    const audio = document.getElementById('audio');
+    const video = document.getElementById('video');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const resumeBtn = document.getElementById('resumeBtn');
+
+    startBtn.addEventListener('click', ()=>{
+      home.style.display = 'none';
+      stage.style.display = 'flex';
+      audio.play().catch(()=>{});
+      video.play().catch(()=>{});
+    });
+
+    pauseBtn.addEventListener('click', ()=>{ audio.pause(); video.pause(); });
+    resumeBtn.addEventListener('click', ()=>{ audio.play().catch(()=>{}); video.play().catch(()=>{}); });
+  </script>
+</body>
+</html>
